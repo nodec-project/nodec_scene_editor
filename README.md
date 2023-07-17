@@ -4,4 +4,3 @@
 
 * nodec
 * modules/imessentials
-* modules/imwindows

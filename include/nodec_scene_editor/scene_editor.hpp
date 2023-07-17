@@ -1,19 +1,17 @@
 #ifndef NODEC_SCENE_EDITOR__SCENE_EDITOR_HPP_
 #define NODEC_SCENE_EDITOR__SCENE_EDITOR_HPP_
 
-#include "selection.hpp"
+#include <nodec/macros.hpp>
 
 #include <imessentials/window.hpp>
-#include <imwindows/entity_inspector_window.hpp>
 
-#include <nodec/macros.hpp>
+#include "entity_inspector_window.hpp"
+#include "selection.hpp"
 
 namespace nodec_scene_editor {
 
 class SceneEditor {
 public:
-    using EntityInspectorWindow = imwindows::EntityInspectorWindow;
-    
     SceneEditor() = default;
 
 public:

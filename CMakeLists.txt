@@ -10,6 +10,6 @@ target_include_directories(
 )
 
 target_link_libraries(${PROJECT_NAME}
-    INTERFACE 
-    nodec imessentials imwindows
+    INTERFACE
+    nodec imessentials
 )

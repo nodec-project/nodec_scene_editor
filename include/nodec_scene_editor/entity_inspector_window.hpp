@@ -1,18 +1,17 @@
-#ifndef IMWINDOWS__INSPECTOR_WINDOW_HPP_
-#define IMWINDOWS__INSPECTOR_WINDOW_HPP_
-
-#include <imessentials/window.hpp>
-#include <nodec/entities/registry.hpp>
-#include <nodec/type_info.hpp>
-#include <nodec/vector2.hpp>
-
-#include <imgui.h>
+#ifndef NODEC_SCENE_EDITOR__ENTITY_INSPECTOR_WINDOW_HPP_
+#define NODEC_SCENE_EDITOR__ENTITY_INSPECTOR_WINDOW_HPP_
 
 #include <type_traits>
 #include <unordered_map>
 #include <vector>
 
-namespace imwindows {
+#include <imessentials/window.hpp>
+#include <imgui.h>
+#include <nodec/entities/registry.hpp>
+#include <nodec/type_info.hpp>
+#include <nodec/vector2.hpp>
+
+namespace nodec_scene_editor {
 
 class EntityInspectorWindow final : public imessentials::BaseWindow {
     using EntityRegistry = nodec::entities::Registry;
@@ -242,6 +241,6 @@ private:
     ImGuiTextFilter filter_;
 };
 
-} // namespace imwindows
+} // namespace nodec_scene_editor
 
 #endif
