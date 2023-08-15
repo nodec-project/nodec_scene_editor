@@ -13,3 +13,11 @@ target_link_libraries(${PROJECT_NAME}
     INTERFACE
     nodec imessentials
 )
+
+option(NODEC_SCENE_EDITOR_BUILD_TESTS "Enable bulding tests." OFF)
+
+if(NODEC_SCENE_EDITOR_BUILD_TESTS)
+    include(CTest)
+    enable_testing()
+    add_subdirectory(tests)
+endif()
