@@ -15,10 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build tests
-      working-directory: build
       run: |
-        cmake -DNODEC_SCENE_EDITOR_BUILD_TESTS=ON ..
-        cmake --build . -j 4
+        cmake -DNODEC_SCENE_EDITOR_BUILD_TESTS=ON -B ./build
+        cmake --build ./build -j 4
     - name: Run tests
       working-directory: build
       run: |
