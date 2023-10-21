@@ -12,7 +12,6 @@ struct InspectorGuiContext {
     nodec_scene::SceneRegistry &registry;
 };
 struct SceneGuiContext {
-    nodec_scene::SceneEntity entity;
     nodec_scene::SceneRegistry &registry;
 };
 
@@ -21,7 +20,7 @@ public:
     virtual ~BaseComponentEditor() {}
 
     virtual void on_inspector_gui_opaque(void *component, const InspectorGuiContext &) = 0;
-    virtual void on_scene_gui_opaque(SceneGizmo &, void *component, const SceneGuiContext &) = 0;
+    virtual void on_scene_gui(SceneGizmo &, const SceneGuiContext &) = 0;
 };
 
 template<typename Component>
@@ -33,13 +32,8 @@ public:
         on_inspector_gui(*static_cast<Component *>(component), context);
     }
 
-    void on_scene_gui_opaque(SceneGizmo &gizmo, void *component, const SceneGuiContext &context) final {
-        on_scene_gui(gizmo, *static_cast<Component *>(component), context);
-    }
-
     virtual void on_inspector_gui(Component &, const InspectorGuiContext &) {}
-
-    virtual void on_scene_gui(SceneGizmo &, Component &, const SceneGuiContext &) {}
+    virtual void on_scene_gui(SceneGizmo &, const SceneGuiContext &) {}
 };
 } // namespace nodec_scene_editor
 
