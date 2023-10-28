@@ -5,19 +5,17 @@
 
 #include <imessentials/window.hpp>
 
-#include "entity_inspector_window.hpp"
-#include "selection.hpp"
+#include "component_registry.hpp"
 
 namespace nodec_scene_editor {
 
 class SceneEditor {
 public:
-    SceneEditor() = default;
+    SceneEditor() {}
+    virtual ~SceneEditor() {}
 
-public:
     virtual imessentials::WindowManager &window_manager() = 0;
-    virtual Selection &selection() = 0;
-    virtual EntityInspectorWindow::ComponentRegistry::RegistryInterface inspector_component_registry() = 0;
+    virtual ComponentRegistry::RegistryInterface component_registry() = 0;
 
 private:
     NODEC_DISABLE_COPY(SceneEditor)

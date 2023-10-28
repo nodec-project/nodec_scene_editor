@@ -3,4 +3,6 @@
 ## Dependencies
 
 * nodec
-* modules/imessentials
+* nodec_scene
+* imessentials
+  * imgui
