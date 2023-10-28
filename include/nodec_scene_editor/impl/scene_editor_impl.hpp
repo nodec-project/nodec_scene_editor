@@ -21,10 +21,6 @@ public:
         return window_manager_impl_;
     }
 
-    Selection &selection() override {
-        return selection_;
-    }
-
     ComponentRegistry::RegistryInterface component_registry() override {
         return component_registry_.registry_interface();
     }
@@ -35,7 +31,6 @@ public:
 
 private:
     imessentials::impl::WindowManagerImpl window_manager_impl_;
-    Selection selection_;
     ComponentRegistry component_registry_;
 };
 

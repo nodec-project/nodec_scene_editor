@@ -6,7 +6,6 @@
 #include <imessentials/window.hpp>
 
 #include "component_registry.hpp"
-#include "selection.hpp"
 
 namespace nodec_scene_editor {
 
@@ -16,7 +15,6 @@ public:
     virtual ~SceneEditor() {}
 
     virtual imessentials::WindowManager &window_manager() = 0;
-    virtual Selection &selection() = 0;
     virtual ComponentRegistry::RegistryInterface component_registry() = 0;
 
 private:
