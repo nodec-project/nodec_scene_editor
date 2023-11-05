@@ -14,14 +14,12 @@ public:
     // virtual void draw_poly_line(nodec::ArrayView<nodec::Vector3f> points,
     //                             const nodec::Vector4f &color) = 0;
 
-    virtual void draw_wire_cube(const nodec_scene::SceneEntity &entity,
+    virtual void draw_wire_cube(const nodec::Vector3f &center,
                                 const nodec::Vector3f &size = nodec::Vector3f::ones,
-                                const nodec::Vector3f &offset = nodec::Vector3f::zero,
                                 const nodec::Quaternionf &rotation = nodec::Quaternionf::identity) = 0;
 
-    virtual void draw_wire_sphere(const nodec_scene::SceneEntity &entity,
-                                  float radius = 1.0f,
-                                  const nodec::Vector3f &offset = nodec::Vector3f::zero) = 0;
+    virtual void draw_wire_sphere(const nodec::Vector3f &center,
+                                  float radius = 1.0f) = 0;
 };
 
 } // namespace nodec_scene_editor
