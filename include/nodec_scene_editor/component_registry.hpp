@@ -9,6 +9,7 @@
 #include <nodec/type_info.hpp>
 #include <nodec_scene/scene_entity.hpp>
 #include <nodec_scene/scene_registry.hpp>
+#include <nodec_scene_serialization/scene_serialization.hpp>
 
 #include "component_editor.hpp"
 
@@ -32,6 +33,9 @@ public:
 
         virtual void emplace_component(nodec_scene::SceneRegistry &registry, nodec_scene::SceneEntity entity) const = 0;
         virtual void remove_component(nodec_scene::SceneRegistry &registry, nodec_scene::SceneEntity entity) const = 0;
+        virtual std::unique_ptr<nodec_scene_serialization::BaseSerializableComponent> make_serializable_component(
+            nodec_scene_serialization::SceneSerialization &serialization,
+            const nodec::type_info &type_info, const void *component) const = 0;
 
     private:
         const std::string component_name_;
@@ -48,6 +52,13 @@ public:
         }
         void remove_component(nodec_scene::SceneRegistry &registry, nodec_scene::SceneEntity entity) const override {
             registry.remove_component<Component>(entity);
+        }
+        std::unique_ptr<nodec_scene_serialization::BaseSerializableComponent> make_serializable_component(
+            nodec_scene_serialization::SceneSerialization &serialization,
+            const nodec::type_info &type_info, const void *component) const override {
+            if (type_info != nodec::type_id<Component>()) return nullptr;
+            const auto& comp = *static_cast<const Component*>(component);
+            return serialization.make_serializable_component<Component>(comp);
         }
     };
 
