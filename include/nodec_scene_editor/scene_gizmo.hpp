@@ -16,10 +16,12 @@ public:
 
     virtual void draw_wire_cube(const nodec::Vector3f &center,
                                 const nodec::Vector3f &size = nodec::Vector3f::ones,
-                                const nodec::Quaternionf &rotation = nodec::Quaternionf::identity) = 0;
+                                const nodec::Quaternionf &rotation = nodec::Quaternionf::identity,
+                                const nodec::Vector4f &color = nodec::Vector4f(0.0f, 1.0f, 0.0f, 0.5f)) = 0;
 
     virtual void draw_wire_sphere(const nodec::Vector3f &center,
-                                  float radius = 1.0f) = 0;
+                                  float radius = 1.0f,
+                                  const nodec::Vector4f &color = nodec::Vector4f(0.0f, 1.0f, 0.0f, 0.5f)) = 0;
 };
 
 } // namespace nodec_scene_editor
